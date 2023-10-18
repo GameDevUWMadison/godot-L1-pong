@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://cg0xhyvixdar2"]
+[gd_scene load_steps=10 format=3 uid="uid://cg0xhyvixdar2"]
 
 [ext_resource type="Texture2D" uid="uid://dua05u8rstbfe" path="res://Art/starBackground.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://biqentj68su1q" path="res://Art/paddleBlue.png" id="2_um4sg"]
+[ext_resource type="Texture2D" uid="uid://b1ghf7ywmk8w2" path="res://Art/paddleRed.png" id="3_eni5t"]
+[ext_resource type="Script" path="res://Scripts/paddle.gd" id="3_v8ghl"]
+[ext_resource type="Texture2D" uid="uid://dbcme14mfgff7" path="res://Art/ballBlue.png" id="4_jfjtx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l87js"]
+size = Vector2(110, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjste"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt0bw"]
+size = Vector2(10, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24b41"]
+size = Vector2(1152, 10)
 
 [node name="root" type="Node2D"]
 
@@ -15,3 +30,63 @@ scale = Vector2(0.997464, 1)
 texture = ExtResource("1")
 expand_mode = 1
 stretch_mode = 1
+
+[node name="BluePaddle" type="CharacterBody2D" parent="."]
+position = Vector2(67, 335)
+rotation = 1.5708
+script = ExtResource("3_v8ghl")
+up_action = "blue_up"
+down_action = "blue_down"
+
+[node name="Sprite2D" type="Sprite2D" parent="BluePaddle"]
+texture = ExtResource("2_um4sg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BluePaddle"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_l87js")
+
+[node name="RedPaddle" type="CharacterBody2D" parent="."]
+position = Vector2(1070, 344)
+rotation = 1.5708
+script = ExtResource("3_v8ghl")
+up_action = "red_up"
+down_action = "red_down"
+
+[node name="Sprite2D" type="Sprite2D" parent="RedPaddle"]
+texture = ExtResource("3_eni5t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedPaddle"]
+shape = SubResource("RectangleShape2D_l87js")
+
+[node name="Ball" type="CharacterBody2D" parent="."]
+position = Vector2(628, 330)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+texture = ExtResource("4_jfjtx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("RectangleShape2D_xjste")
+
+[node name="leftbound" type="StaticBody2D" parent="."]
+position = Vector2(-5, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftbound"]
+shape = SubResource("RectangleShape2D_kt0bw")
+
+[node name="upperbound" type="StaticBody2D" parent="."]
+position = Vector2(576, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="upperbound"]
+shape = SubResource("RectangleShape2D_24b41")
+
+[node name="lowerbound" type="StaticBody2D" parent="."]
+position = Vector2(576, 653)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lowerbound"]
+shape = SubResource("RectangleShape2D_24b41")
+
+[node name="rightbound" type="StaticBody2D" parent="."]
+position = Vector2(1157, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightbound"]
+shape = SubResource("RectangleShape2D_kt0bw")
