@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://cg0xhyvixdar2"]
 
-[ext_resource path="res://Art/starBackground.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://dua05u8rstbfe" path="res://Art/starBackground.png" id="1"]
 
 [node name="root" type="Node2D"]
 
@@ -8,9 +8,10 @@
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="BackgroundLayer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-scale = Vector2( 0.997464, 1 )
-texture = ExtResource( 1 )
-expand = true
-stretch_mode = 2
+scale = Vector2(0.997464, 1)
+texture = ExtResource("1")
+expand_mode = 1
+stretch_mode = 1
