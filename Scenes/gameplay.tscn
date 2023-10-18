@@ -5,14 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://b1ghf7ywmk8w2" path="res://Art/paddleRed.png" id="3_eni5t"]
 [ext_resource type="Script" path="res://Scripts/paddle.gd" id="3_v8ghl"]
 [ext_resource type="Texture2D" uid="uid://dbcme14mfgff7" path="res://Art/ballBlue.png" id="4_jfjtx"]
+[ext_resource type="Script" path="res://Scripts/ball.gd" id="5_jp4mc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l87js"]
 size = Vector2(110, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjste"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt0bw"]
-size = Vector2(10, 648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24b41"]
 size = Vector2(1152, 10)
@@ -60,18 +58,14 @@ shape = SubResource("RectangleShape2D_l87js")
 
 [node name="Ball" type="CharacterBody2D" parent="."]
 position = Vector2(628, 330)
+script = ExtResource("5_jp4mc")
+INITIAL_VEL = Vector2(500, 200)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball"]
 texture = ExtResource("4_jfjtx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("RectangleShape2D_xjste")
-
-[node name="leftbound" type="StaticBody2D" parent="."]
-position = Vector2(-5, 324)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="leftbound"]
-shape = SubResource("RectangleShape2D_kt0bw")
 
 [node name="upperbound" type="StaticBody2D" parent="."]
 position = Vector2(576, -5)
@@ -84,9 +78,3 @@ position = Vector2(576, 653)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lowerbound"]
 shape = SubResource("RectangleShape2D_24b41")
-
-[node name="rightbound" type="StaticBody2D" parent="."]
-position = Vector2(1157, 324)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="rightbound"]
-shape = SubResource("RectangleShape2D_kt0bw")
