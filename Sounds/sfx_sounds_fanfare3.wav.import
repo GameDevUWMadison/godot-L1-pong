@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/sfx_sounds_fanfare3.wav-8c0538d438d46d8da2eb7fb766fcfff9.sample"
+type="AudioStreamWAV"
+uid="uid://c44ndiv5vsa0b"
+path="res://.godot/imported/sfx_sounds_fanfare3.wav-8c0538d438d46d8da2eb7fb766fcfff9.sample"
 
 [deps]
 
 source_file="res://Sounds/sfx_sounds_fanfare3.wav"
-dest_files=[ "res://.import/sfx_sounds_fanfare3.wav-8c0538d438d46d8da2eb7fb766fcfff9.sample" ]
+dest_files=["res://.godot/imported/sfx_sounds_fanfare3.wav-8c0538d438d46d8da2eb7fb766fcfff9.sample"]
 
 [params]
 
